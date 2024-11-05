@@ -1,1 +1,50 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void bubble_sort(int arr[], int size){
+    for(int i=0;i<size-1;i++){
+        for(int j=0;j<size-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                int temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp; 
+                
+            }
+        }
+    }
+}
+void printArr(int arr[], int size){
+    for(int i=0;i<size;i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+// Realiza a criação do vetor com números aleatorios
+void criaVet(int arr[], int size){
+    if(arr == NULL){
+        printf("Erro ao alocar memoria!");
+    }
+    for(int i=0;i<size;i++){
+        arr[i] = rand();
+    }
+}
+int main()
+{
+    int size;
+    printf("Qual o tamanho do vetor voce deseja: ");
+    scanf("%d",&size);
+    
+    int arr[size];
+    criaVet(arr,size);
+    /*Inicia o tempo do relógio para começar 
+    a contar o tempo e só depois realiza o bubblesort*/
+    clock_t inicio = clock();
+    bubble_sort(arr,size);
+    clock_t fim = clock();
+    printArr(arr, size);
+    double tempo_execucao = (double)(fim - inicio) / CLOCKS_PER_SEC;
+
+    printf("\nTempo levado pelo programa: %.6f segundos\n", tempo_execucao);
+    return 0;
+}
