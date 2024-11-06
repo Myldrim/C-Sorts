@@ -124,3 +124,31 @@ void insertion_sort(int *vet, int n) {
         vet[i + 1] = aux; 
     }
 }
+// Quick Sort
+void trocar_elementos(int *primeiro_elemento, int *segundo_elemento) {
+    int temporario = *primeiro_elemento;
+    *primeiro_elemento = *segundo_elemento;
+    *segundo_elemento = temporario;
+}
+int particionar(int arr[], int inicio, int fim) {
+    int pivo = arr[fim];
+    int indice_menor = inicio - 1;
+    for (int i = inicio; i < fim; i++) {
+        if (arr[i] < pivo) {
+            indice_menor++;
+            trocar_elementos(&arr[indice_menor], &arr[i]);
+        }
+    }
+    trocar_elementos(&arr[indice_menor + 1], &arr[fim]);
+    return indice_menor + 1;
+}
+void quick_sort(int arr[], int inicio, int fim) {
+    if (inicio < fim) {
+        int pi = particionar(arr, inicio, fim);
+        quick_sort(arr, inicio, pi - 1);
+        quick_sort(arr, pi + 1, fim);
+    }
+}
+void ordenarUsandoQuickSort(int arr[], int n) {
+    quick_sort(arr, 0, n - 1);
+}

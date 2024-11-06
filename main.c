@@ -41,10 +41,23 @@ void executaSorts(int tamanhos[], int size) {
         printf("Heap Sort para %d elementos: %.6f segundos\n", n, tempo_execucao_heap);
         free(arr_heap); 
 
+        // Quick Sort
+        //Cria um vetor especifico pra executar o Quick Sort
+        int *arr_quick = malloc(n * sizeof(int)); 
+        memcpy(arr_quick, arr, n * sizeof(int)); 
+
+        clock_t inicio_quick = clock();
+        ordenarUsandoQuickSort(arr_quick, n); 
+        clock_t fim_quick = clock();
+        double tempo_execucao_quick = (double)(fim_quick - inicio_quick) / CLOCKS_PER_SEC;
+        printf("Quick Sort para %d elementos: %.6f segundos\n", n, tempo_execucao_quick);
+        free(arr_quick);
+
         // Bubble Sort
         //Cria um vetor especifico pra executar o Bubble Sort
         int *arr_bubble = malloc(n * sizeof(int));
         memcpy(arr_bubble, arr, n * sizeof(int)); 
+        
         clock_t inicio_bubble = clock();
         bubble_sort(arr_bubble, n);
         clock_t fim_bubble = clock();
@@ -56,6 +69,7 @@ void executaSorts(int tamanhos[], int size) {
         //Cria um vetor especifico pra executar o Selection sort
         int *arr_selection = malloc(n * sizeof(int)); 
         memcpy(arr_selection, arr, n * sizeof(int)); 
+        
         clock_t inicio_selection = clock();
         selection_sort(arr_selection, n); 
         clock_t fim_selection = clock();

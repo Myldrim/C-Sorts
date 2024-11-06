@@ -16,4 +16,9 @@ void heapify(int arr[], int n, int i);
 void heapSort(int arr[], int n);
 //Insertion Sort
 void insertion_sort(int *vet, int n);
+//Quick Sort
+void trocar_elementos(int *primeiro_elemento, int *segundo_elemento);
+int particionar(int arr[], int inicio, int fim);
+void quick_sort(int arr[], int inicio, int fim);
+void ordenarUsandoQuickSort(int arr[], int n);
 #endif
