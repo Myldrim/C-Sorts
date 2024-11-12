@@ -18,7 +18,7 @@ void executaSorts(int tamanhos[], int size) {
         criaVet(arr, n);
 
         // Merge Sort
-        //Cria um vetor especifico pra executar o Merge Sort
+        //Cria um array especifico pra executar o Merge Sort
         int *arr_merge = malloc(n * sizeof(int)); 
         memcpy(arr_merge, arr, n * sizeof(int)); 
 
@@ -30,7 +30,7 @@ void executaSorts(int tamanhos[], int size) {
         free(arr_merge); 
 
         // Heap Sort
-        //Cria um vetor especifico pra executar o Heap Sort
+        //Cria um array especifico pra executar o Heap Sort
         int *arr_heap = malloc(n * sizeof(int));
         memcpy(arr_heap, arr, n * sizeof(int)); 
 
@@ -42,7 +42,7 @@ void executaSorts(int tamanhos[], int size) {
         free(arr_heap); 
 
         // Quick Sort
-        //Cria um vetor especifico pra executar o Quick Sort
+        //Cria um array especifico pra executar o Quick Sort
         int *arr_quick = malloc(n * sizeof(int)); 
         memcpy(arr_quick, arr, n * sizeof(int)); 
 
@@ -54,7 +54,7 @@ void executaSorts(int tamanhos[], int size) {
         free(arr_quick);
 
         // Bubble Sort
-        //Cria um vetor especifico pra executar o Bubble Sort
+        //Cria um array especifico pra executar o Bubble Sort
         int *arr_bubble = malloc(n * sizeof(int));
         memcpy(arr_bubble, arr, n * sizeof(int)); 
         
@@ -66,7 +66,7 @@ void executaSorts(int tamanhos[], int size) {
         free(arr_bubble); 
 
         // Selection Sort
-        //Cria um vetor especifico pra executar o Selection sort
+        //Cria um array especifico pra executar o Selection sort
         int *arr_selection = malloc(n * sizeof(int)); 
         memcpy(arr_selection, arr, n * sizeof(int)); 
         
@@ -78,7 +78,7 @@ void executaSorts(int tamanhos[], int size) {
         free(arr_selection); 
 
         // Insertion Sort
-        //Cria um vetor especifico pra executar o Insertion Sort
+        //Cria um array especifico pra executar o Insertion Sort
         int *arr_insertion = malloc(n * sizeof(int)); 
         memcpy(arr_insertion, arr, n * sizeof(int)); 
 
@@ -89,13 +89,13 @@ void executaSorts(int tamanhos[], int size) {
         printf("Insertion Sort para %d elementos: %.6f segundos\n", n, tempo_execucao_insertion);
         free(arr_insertion); 
 
-        free(arr);  // Libera o vetor principal
+        free(arr);  // Libera o array principal
         printf("\n");
     }
 }
 
 int main() {
-    srand(time(NULL));  // Inicializa a geração de números aleatórios
+    srand(time(NULL));  // Inicia a geração de números aleatórios
     int tamanhos[] = {100, 1000, 10000, 50000, 100000};
     int size = sizeof(tamanhos) / sizeof(tamanhos[0]);
 
